@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input type="text" v-model="start" >
+    <Calculator ref="commentDelRef"  @getData="getdata"/>
+    <br>
+    <button @click="doDel">计算器</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Calculator from './components/Calculator.vue'
 
 export default {
   name: 'App',
+  data(){
+    return{
+      start:0
+    }
+  },
   components: {
-    HelloWorld
+    Calculator
+  },
+  methods:{
+    doDel (params) {
+      this.$refs.commentDelRef.open(params)
+    },
+    getdata(val) {
+    this.start = val
+},
   }
 }
 </script>
