@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <input type="text" v-model="start" >
-    <Calculator ref="commentDelRef"  @getData="getdata"/>
-    <br>
-    <button @click="doDel">计算器</button>
+    <Calculator  @getData="getdata"/>
+    <Calculator  @getData="getdata"/>
+    <Calculator  @getData="getdata"/>
+    <Calculator  @getData="getdata"/>
   </div>
 </template>
 
