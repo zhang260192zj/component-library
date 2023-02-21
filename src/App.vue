@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Calculator  @getData="getdata"/>
-    <Calculator  @getData="getdata"/>
-    <Calculator  @getData="getdata"/>
-    <Calculator  @getData="getdata"/>
+    <Calculator/>
+    <Calculator/>
+    <Calculator/>
+    <Calculator/>
   </div>
 </template>
 
@@ -21,12 +21,6 @@ export default {
     Calculator
   },
   methods:{
-    doDel (params) {
-      this.$refs.commentDelRef.open(params)
-    },
-    getdata(val) {
-    this.start = val
-},
   }
 }
 </script>
