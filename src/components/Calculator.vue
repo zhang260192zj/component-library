@@ -1,52 +1,52 @@
 <template>
   <!-- <el-dialog width="380px" size="" :visible="visible" @close="closeDelDialog"> -->
-    <Dropdown trigger="custom" :visible="visible" >
-      <Input v-model="start"  @click.native="handleOpen" icon="ios-calculator" size="small" style="width: 130px" ></Input>
-      <Dropdown-menu slot="list" style="width:200px;height:230px;">
-          <div class="calculator"  style="height:220px;" >
-            <div class="input">
-              <input type="text" v-model="equation">
-            </div>
-            <div class="two">
-              <button @click="clear">C</button>
-              <button @click="del"><b>←</b></button>
-            </div>
-            <div class="three">
-              <button @click="rooting">Sqrt</button>
-              <button @click="append('/')">/</button>
-              <button @click="append(9)">9</button>
-              <button @click="append(8)">8</button>
-              <button @click="append(7)">7</button>
-            </div>
-            <div class="four">
-              
-              <button @click="cent">1/X</button>
-              <button @click="append('x')">*</button>
-              <button @click="append(6)">6</button>
-              <button @click="append(5)">5</button>
-              <button @click="append(4)">4</button>
-              
-            </div>
-            <div class="five">
-              <button @click="calculatePercentage">%</button>
-              <button @click="append('-')">-</button>
-              <button @click="append(3)">3</button>
-              <button @click="append(2)">2</button>
-              <button @click="append(1)">1</button>
-             
-            </div>
-            <div class="six">
-              <button @click="calculate">=</button>
-              <button @click="append('+')">+</button>
-              <button @click="append('.')">.</button>
-              <button @click="calculateToggle">+/-</button>
-              <button @click="append(0)">0</button>
-            </div>
-            <div class="seven">
-              <button @click="cancel">取消</button>
-              <button @click="ok" style="color:black">确定</button>
-            </div>
-        </div>
+    <Dropdown trigger="custom"  :transfer="transfer" :visible="visible" style="z-index:99999" >
+      <Input v-model="start"   @click.native="handleOpen"  icon="ios-calculator"  style="`width: ${width}px`"></Input>
+      <Dropdown-menu slot="list"  style="width:200px;height:230px;">
+        <div class="calculator"  style="height:220px;" >
+          <div class="input">
+            <input type="text" v-model="equation">
+          </div>
+          <div class="two">
+            <button @click="clear">C</button>
+            <button @click="del"><b>←</b></button>
+          </div>
+          <div class="three">
+            <button @click="rooting">Sqrt</button>
+            <button @click="append('/')">/</button>
+            <button @click="append(9)">9</button>
+            <button @click="append(8)">8</button>
+            <button @click="append(7)">7</button>
+          </div>
+          <div class="four">
+            
+            <button @click="cent">1/X</button>
+            <button @click="append('x')">*</button>
+            <button @click="append(6)">6</button>
+            <button @click="append(5)">5</button>
+            <button @click="append(4)">4</button>
+            
+          </div>
+          <div class="five">
+            <button @click="calculatePercentage">%</button>
+            <button @click="append('-')">-</button>
+            <button @click="append(3)">3</button>
+            <button @click="append(2)">2</button>
+            <button @click="append(1)">1</button>
+           
+          </div>
+          <div class="six">
+            <button @click="calculate">=</button>
+            <button @click="append('+')">+</button>
+            <button @click="append('.')">.</button>
+            <button @click="calculateToggle">+/-</button>
+            <button @click="append(0)">0</button>
+          </div>
+          <div class="seven">
+            <button @click="cancel">取消</button>
+            <button @click="ok" style="color:black">确定</button>
+          </div>
+      </div>
       </Dropdown-menu>
   </Dropdown>
     <!-- <Modal
@@ -63,8 +63,19 @@
 <script>
 export default {
   name: 'CalculatorPage',
+  props:{
+    width: {
+     type: Number,
+     default: 115
+    },
+    transfer: {
+     type: Boolean,
+     default: false
+    }
+  },
   data () {
     return {
+      show:false,
       start:0,
       visible: false,
       delModal: false,
@@ -185,7 +196,7 @@ export default {
   ok () {
       // this.$Message.info('点击了确定');
       this.calculate()
-      this.start=this.equation
+      if(this.show==false) this.start=this.equation
       this.equation = '0'
       this.visible = false;
      },

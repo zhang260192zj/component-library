@@ -4,11 +4,13 @@
     <Calculator/>
     <Calculator/>
     <Calculator/>
+    <EditTable></EditTable>
   </div>
 </template>
 
 <script>
 import Calculator from './components/Calculator.vue'
+import EditTable from './components/EditTable.vue'
 
 export default {
   name: 'App',
@@ -18,7 +20,8 @@ export default {
     }
   },
   components: {
-    Calculator
+    Calculator,
+    EditTable
   },
   methods:{
   }
