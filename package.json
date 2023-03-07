@@ -10,8 +10,11 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.13",
+    "exceljs": "^4.3.0",
+    "file-saver": "^2.0.5",
     "iview": "^3.5.4",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

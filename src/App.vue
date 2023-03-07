@@ -1,17 +1,18 @@
 <template>
   <div id="app">
+    <!-- <Calculator/>
     <Calculator/>
     <Calculator/>
     <Calculator/>
-    <Calculator/>
-    <EditTable></EditTable>
+    <EditTable></EditTable> -->
+    <button @click="excel">导出</button>
   </div>
 </template>
 
 <script>
-import Calculator from './components/Calculator.vue'
-import EditTable from './components/EditTable.vue'
-
+// import Calculator from './components/Calculator.vue'
+// import EditTable from './components/EditTable.vue'
+import exportData from '@/lib/excel'
 export default {
   name: 'App',
   data(){
@@ -20,10 +21,13 @@ export default {
     }
   },
   components: {
-    Calculator,
-    EditTable
+    // Calculator,
+    // EditTable
   },
   methods:{
+   excel(){
+    exportData()
+   }
   }
 }
 </script>
